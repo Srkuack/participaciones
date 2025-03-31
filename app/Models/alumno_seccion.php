@@ -9,4 +9,5 @@ class alumno_seccion extends Model
 {
     /** @use HasFactory<\Database\Factories\AlumnoSeccionFactory> */
     use HasFactory;
+    
 }

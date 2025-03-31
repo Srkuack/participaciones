@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('alumno_seccions', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');
+            //$table->foreignId('seccion_id')->constrained('secciones')->onDelete('cascade');
+            //linea anterior falla por que el nombre de la tabla esta en español
+            $table->unsignedBigInteger('seccion_id');
+            $table->foreign('seccion_id')->references('id')->on('secciones');
         });
     }
 

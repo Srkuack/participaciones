@@ -14,8 +14,13 @@ class Docente extends Model
         'correo',
         'codigo',
     ];
-    protected $hidden = [
-        'created_at',
-        'updated_at',
-    ];
+    public function secciones()
+    {
+        return $this->hasMany(Secciones::class);
+    }
+    public function alumno_seccion()
+    {
+        // sirve para las relaciones de muchos a muchos
+        return $this->hasMany(alumno_seccion::class);
+    }
 }
